@@ -1,6 +1,6 @@
 const { DataSource } = require("apollo-datasource");
 
-class ContactAPI extends DataSource {
+class CompanyAPI extends DataSource {
   constructor({ store }) {
     super();
     this.store = store;
@@ -27,17 +27,9 @@ class ContactAPI extends DataSource {
     return contact;
   }
 
-  async update(id, contact) {
-    // [rows affected]
-    const result = await this.store.contacts.update(contact, {
-      where: { id },
-    });
-    return result[0] === 1;
-  }
-
   async getAll() {
-    const contacts = await this.store.contacts.findAll();
-    return contacts ? contacts : [];
+    const companies = await this.store.companies.findAll();
+    return companies ? companies : [];
   }
 
   async delete(id) {
@@ -49,4 +41,4 @@ class ContactAPI extends DataSource {
   }
 }
 
-module.exports = ContactAPI;
+module.exports = CompanyAPI;

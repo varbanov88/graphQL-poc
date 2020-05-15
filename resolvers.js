@@ -4,9 +4,13 @@ module.exports = {
       const contact = await context.dataSources.contactAPI.find(input);
       return contact;
     },
-    getAllContacts: async (_, __, context) => {
+    allContacts: async (_, __, context) => {
       const contacts = await context.dataSources.contactAPI.getAll();
       return contacts;
+    },
+    allCompanies: async (_, __, context) => {
+      const companies = await context.dataSources.companyAPI.getAll();
+      return companies;
     },
   },
   Mutation: {

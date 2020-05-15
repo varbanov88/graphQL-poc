@@ -6,7 +6,12 @@ const typeDefs = gql`
     first_name: String!
     last_name: String!
     email: String!
-    company_id: Int
+    company_id: Int!
+  }
+
+  type Company {
+    id: Int!
+    company_name: String!
   }
 
   input ContactModel {
@@ -17,11 +22,17 @@ const typeDefs = gql`
     email: String!
     first_name: String!
     last_name: String!
+    company_id: Int!
+  }
+
+  input CompanyInput {
+    company_name: String!
   }
 
   type Query {
     findContact(input: ContactModel): Contact
-    getAllContacts: [Contact]!
+    allContacts: [Contact]!
+    allCompanies: [Company]!
   }
 
   type Mutation {

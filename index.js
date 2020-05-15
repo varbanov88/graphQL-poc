@@ -4,11 +4,13 @@ const resolvers = require("./resolvers");
 const { createStore } = require("./utils");
 
 const ContactAPI = require("./datasources/contact");
+const CompanyAPI = require("./datasources/company");
 
 const store = createStore();
 
 const dataSources = () => ({
   contactAPI: new ContactAPI({ store }),
+  companyAPI: new CompanyAPI({ store }),
 });
 
 const server = new ApolloServer({

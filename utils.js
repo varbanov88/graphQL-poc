@@ -31,6 +31,15 @@ module.exports.createStore = () => {
       freezeTableName: true,
     }
   );
-
-  return { db, contacts };
+  const companies = db.define(
+    "companies",
+    {
+      company_name: Sequelize.STRING,
+    },
+    {
+      timestamps: false,
+      freezeTableName: true,
+    }
+  );
+  return { db, contacts, companies };
 };
