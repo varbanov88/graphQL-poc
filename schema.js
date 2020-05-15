@@ -6,7 +6,7 @@ const typeDefs = gql`
     first_name: String!
     last_name: String!
     email: String!
-    company_id: Int!
+    company: Company
   }
 
   type Company {
@@ -32,6 +32,7 @@ const typeDefs = gql`
   type Query {
     findContact(input: ContactModel): Contact
     allContacts: [Contact]!
+    findCompany(id: Int!): Company
     allCompanies: [Company]!
   }
 

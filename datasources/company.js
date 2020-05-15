@@ -21,10 +21,10 @@ class CompanyAPI extends DataSource {
   }
 
   async find(input) {
-    const contact = await this.store.contacts.findOne({
+    const company = await this.store.companies.findOne({
       where: input,
     });
-    return contact;
+    return company;
   }
 
   async getAll() {
